@@ -87,10 +87,10 @@ section {
   text-transform: uppercase;
 }
 
-#lista-pet li div:nth-child(2) {
+#lista-pet .pet-nome {
   font-size: 22px;
   font-weight: 700;
-  color: #cfb978;
+  color: #735e2f;
 }
 
 #lista-pet li div:last-child {
