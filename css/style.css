@@ -159,6 +159,11 @@ footer {
   background: #cfb978;
 }
 
+.botao-editar:hover img,
+.botao-excluir:hover img {
+  filter: invert(78%) sepia(30%) saturate(500%) hue-rotate(5deg);
+}
+
 #botao-cancelar {
   background: none;
   color: #735e2f;
