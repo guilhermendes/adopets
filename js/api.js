@@ -1,7 +1,9 @@
+const URL_BASE = "https://adopets-itwi.onrender.com";
+
 const api = {
   async buscaPet() {
     try {
-      const response = await fetch("https://adopets-itwi.onrender.com/pets/");
+      const response = await fetch(`${URL_BASE}/pets/`);
       return await response.json();
     } catch {
       alert("erro ao buscar api");
@@ -10,7 +12,7 @@ const api = {
   },
   async salvaPet(pet) {
     try {
-      const response = await fetch("https://adopets-itwi.onrender.com/pets/", {
+      const response = await fetch(`${URL_BASE}/pets/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,9 +27,7 @@ const api = {
 
   async buscaPetId(id) {
     try {
-      const response = await fetch(
-        `https://adopets-itwi.onrender.com/pets/${id}`,
-      );
+      const response = await fetch(`${URL_BASE}/pets/${id}`);
       return await response.json();
     } catch {
       alert("Não foi possível buscar o pet!");
@@ -36,16 +36,13 @@ const api = {
 
   async editarPet(pet) {
     try {
-      const response = await fetch(
-        `https://adopets-itwi.onrender.com/pets/${pet.id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(pet),
+      const response = await fetch(`${URL_BASE}/pets/${pet.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify(pet),
+      });
       return await response.json();
     } catch {
       alert("Não foi possível editar o pet!");
@@ -53,12 +50,9 @@ const api = {
   },
   async excluirPet(id) {
     try {
-      const response = await fetch(
-        `https://adopets-itwi.onrender.com/pets/${id}`,
-        {
-          method: "DELETE",
-        },
-      );
+      const response = await fetch(`${URL_BASE}/pets/${id}`, {
+        method: "DELETE",
+      });
       return await response.json();
     } catch {
       alert("Não foi possível excluir o pet");
