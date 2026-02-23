@@ -67,8 +67,9 @@ const ui = {
     icones.appendChild(botaoEditar);
     icones.appendChild(botaoExcluir);
 
-    const iconePata = document.createElement("span");
-    iconePata.textContent = "🐾";
+    const iconePata = document.createElement("img");
+    iconePata.src = "assets/imagens/icone-pata.png";
+    iconePata.alt = "Pata";
     iconePata.classList.add("icone-pata");
 
     li.appendChild(iconePata);

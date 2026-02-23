@@ -46,9 +46,19 @@ section {
   border-radius: 12px;
   padding: 24px;
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: 8px;
+  align-items: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+#lista-pet li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 #lista-pet li button {
@@ -59,7 +69,15 @@ section {
 }
 
 #lista-pet li .icones {
+  grid-column: 2;
   text-align: right;
+}
+
+.icone-pata {
+  font-size: 32px;
+  grid-row: span 3;
+  align-self: center;
+  padding-right: 12px;
 }
 
 #lista-pet li div:first-child {
@@ -172,6 +190,14 @@ header {
   height: auto;
 }
 
+.icone-pata {
+  width: 40px;
+  height: 40px;
+  grid-row: span 3;
+  align-self: center;
+  padding-right: 12px;
+}
+
 /* Tablet */
 @media (min-width: 600px) {
   #lista-pet {
@@ -192,19 +218,4 @@ header {
   body {
     padding: 32px;
   }
-}
-.li-pet {
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.li-pet:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-.icone-pata {
-  font-size: 24px;
-  align-self: center;
 }
