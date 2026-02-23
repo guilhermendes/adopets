@@ -43,7 +43,11 @@ const ui = {
 
     const botaoEditar = document.createElement("button");
     botaoEditar.classList.add("botao-editar");
-    botaoEditar.addEventListener("click", () => ui.preencherFormulario(pet.id));
+    botaoEditar.addEventListener(
+      "click",
+      () => ui.preencherFormulario(pet.id),
+      window.scrollTo({ top: 0, behavior: "smooth" }),
+    );
 
     const iconeEditar = document.createElement("img");
     iconeEditar.src = "assets/imagens/icone-editar.png";
