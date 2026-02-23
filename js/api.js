@@ -1,7 +1,7 @@
 const api = {
   async buscaPet() {
     try {
-      const response = await fetch("http://localhost:3000/pets");
+      const response = await fetch("https://adopets-itwi.onrender.com/pets/");
       return await response.json();
     } catch {
       alert("erro ao buscar api");
