@@ -67,6 +67,11 @@ const ui = {
     icones.appendChild(botaoEditar);
     icones.appendChild(botaoExcluir);
 
+    const iconePata = document.createElement("span");
+    iconePata.textContent = "🐾";
+    iconePata.classList.add("icone-pata");
+
+    li.appendChild(iconePata);
     li.appendChild(petEspecie);
     li.appendChild(petNome);
     li.appendChild(petRaca);
