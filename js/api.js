@@ -10,7 +10,7 @@ const api = {
   },
   async salvaPet(pet) {
     try {
-      const response = await fetch("http://localhost:3000/pets", {
+      const response = await fetch("https://adopets-itwi.onrender.com/pets/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,7 +25,9 @@ const api = {
 
   async buscaPetId(id) {
     try {
-      const response = await fetch(`http://localhost:3000/pets/${id}`);
+      const response = await fetch(
+        `https://adopets-itwi.onrender.com/pets/${id}`,
+      );
       return await response.json();
     } catch {
       alert("Não foi possível buscar o pet!");
@@ -34,13 +36,16 @@ const api = {
 
   async editarPet(pet) {
     try {
-      const response = await fetch(`http://localhost:3000/pets/${pet.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        `https://adopets-itwi.onrender.com/pets/${pet.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(pet),
         },
-        body: JSON.stringify(pet),
-      });
+      );
       return await response.json();
     } catch {
       alert("Não foi possível editar o pet!");
@@ -48,9 +53,12 @@ const api = {
   },
   async excluirPet(id) {
     try {
-      const response = await fetch(`http://localhost:3000/pets/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://adopets-itwi.onrender.com/pets/${id}`,
+        {
+          method: "DELETE",
+        },
+      );
       return await response.json();
     } catch {
       alert("Não foi possível excluir o pet");
