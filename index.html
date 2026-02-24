@@ -27,36 +27,36 @@
   <header>
     <img src="./assets/imagens/logo-adopet.png" class="logo" alt="Logo Adopet" height="200px" />
   </header>
+  <main>
+    <section>
+      <h2>Cadastrar Pets</h2>
+      <form id="pet-form">
+        <div class="form-grupo">
+          <input type="hidden" id="pet-id" />
+          <label for="pet-especie">Espécie</label>
+          <input type="text" id="pet-especie" minlength="3" maxlength="60" placeholder="Ex: canina" required />
+        </div>
 
-  <section>
-    <h2>Cadastrar Pets</h2>
-    <form id="pet-form">
-      <div class="form-grupo">
-        <input type="hidden" id="pet-id" />
-        <label for="pet-especie">Espécie</label>
-        <input type="text" id="pet-especie" minlength="3" maxlength="60" placeholder="Ex: canina" required />
-      </div>
+        <div class="form-grupo">
+          <label for="pet-nome">Nome</label>
+          <input type="text" id="pet-nome" minlength="3" maxlength="60" placeholder="Ex: Charlie" required />
+        </div>
 
-      <div class="form-grupo">
-        <label for="pet-nome">Nome</label>
-        <input type="text" id="pet-nome" minlength="3" maxlength="60" placeholder="Ex: Charlie" required />
-      </div>
+        <div class="form-grupo">
+          <label for="pet-raca">Raça</label>
+          <input type="text" id="pet-raca" minlength="3" maxlength="60" placeholder="Ex: Golden Retriever" required />
+        </div>
 
-      <div class="form-grupo">
-        <label for="pet-raca">Raça</label>
-        <input type="text" id="pet-raca" minlength="3" maxlength="60" placeholder="Ex: Golden Retriever" required />
-      </div>
-
-      <div class="form-botoes">
-        <button type="submit" id="botao-salvar">Salvar</button>
-        <button type="button" id="botao-cancelar">Cancelar</button>
-      </div>
-    </form>
-    <hr>
-    <h2>Lista de Pets Cadastrados</h2>
-    <ul id="lista-pet"></ul>
-  </section>
-
+        <div class="form-botoes">
+          <button type="submit" id="botao-salvar">Salvar</button>
+          <button type="button" id="botao-cancelar">Cancelar</button>
+        </div>
+      </form>
+      <hr>
+      <h2>Lista de Pets Cadastrados</h2>
+      <ul id="lista-pet"></ul>
+    </section>
+  </main>
 
   <footer>
     2026 - AdoPets - Ame, Cuide, Adote

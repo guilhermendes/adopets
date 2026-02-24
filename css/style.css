@@ -202,6 +202,11 @@ header {
   padding-right: 12px;
 }
 
+.pet-conteudo {
+  width: 100%;
+  text-align: center;
+}
+
 /* Tablet */
 @media (min-width: 600px) {
   #lista-pet {

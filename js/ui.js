@@ -19,8 +19,15 @@ const ui = {
     listaPet.innerHTML = "";
     try {
       const pets = await api.buscaPet();
-      pets.forEach(ui.adicionarPetsNaLista);
-    } catch {}
+      if (!pets || pets.length === 0) {
+        ui.carregarConteudoVazio();
+      } else {
+        pets.forEach(ui.adicionarPetsNaLista);
+      }
+    } catch {
+      alert("Não é possível exibir o pet");
+      throw Error;
+    }
   },
 
   adicionarPetsNaLista(pet) {
@@ -78,6 +85,23 @@ const ui = {
     li.appendChild(petRaca);
     li.appendChild(icones);
     listaPet.appendChild(li);
+  },
+  carregarConteudoVazio() {
+    const containerPet = document.querySelector("section");
+
+    const container = document.createElement("div");
+    container.classList.add("pet-conteudo");
+
+    const iconeCaixa = document.createElement("img");
+    iconeCaixa.src = "assets/imagens/icone-alerta.png";
+    iconeCaixa.alt = "Caixa Vazia";
+
+    const conteudo = document.createElement("p");
+    conteudo.textContent = "Nenhum pet cadastrado";
+
+    container.appendChild(iconeCaixa); // 👈 imagem primeiro
+    container.appendChild(conteudo);
+    containerPet.appendChild(container); // 👈 corrigido
   },
   limparFormulario() {
     document.querySelector("#pet-form").reset();
