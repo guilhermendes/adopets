@@ -1,13 +1,16 @@
-const URL_BASE = "https://adopets-itwi.onrender.com";
+//const URL_BASE = "https://adopets-itwi.onrender.com";
+const URL_BASE = "http://localhost:3000";
 
 const api = {
   async buscaPet() {
     try {
       const response = await fetch(`${URL_BASE}/pets/`);
       const pets = await response.json();
+
+      if (!response.ok) throw new Error("Erro ao buscar pet");
       return pets.reverse();
-    } catch {
-      alert("erro ao buscar api");
+    } catch (error) {
+      console.error(error);
       throw error;
     }
   },
@@ -20,18 +23,26 @@ const api = {
         },
         body: JSON.stringify(pet),
       });
+
+      if (!response.ok) throw new Error("Erro ao salvar pet");
+
       return await response.json();
-    } catch {
-      alerta("erro ao buscar");
+    } catch (error) {
+      console.error(error);
+      throw error;
     }
   },
 
   async buscaPetId(id) {
     try {
       const response = await fetch(`${URL_BASE}/pets/${id}`);
+
+      if (!response.ok) throw new Error("Erro ao buscar pet");
+
       return await response.json();
-    } catch {
-      alert("Não foi possível buscar o pet!");
+    } catch (error) {
+      console.error(error);
+      throw error;
     }
   },
 
@@ -44,9 +55,12 @@ const api = {
         },
         body: JSON.stringify(pet),
       });
+      if (!response.ok) throw new Error("Erro ao editar pet");
+
       return await response.json();
-    } catch {
-      alert("Não foi possível editar o pet!");
+    } catch (error) {
+      console.error(error);
+      throw error;
     }
   },
   async excluirPet(id) {
@@ -56,7 +70,8 @@ const api = {
       });
       return await response.json();
     } catch {
-      alert("Não foi possível excluir o pet");
+      console.error(error);
+      throw error;
     }
   },
 };

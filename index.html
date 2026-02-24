@@ -34,7 +34,11 @@
         <div class="form-grupo">
           <input type="hidden" id="pet-id" />
           <label for="pet-especie">Espécie</label>
-          <input type="text" id="pet-especie" minlength="3" maxlength="60" placeholder="Ex: canina" required />
+          <select id="pet-especie" required>
+            <option value="">Selecione</option>
+            <option value="Canina">Canina</option>
+            <option value="Felina">Felina</option>
+          </select>
         </div>
 
         <div class="form-grupo">
@@ -59,6 +63,15 @@
       <h2>Lista de Pets Cadastrados</h2>
       <ul id="lista-pet"></ul>
     </section>
+
+    <div id="loading" class="hidden">
+      <div class="spinner"></div>
+    </div>
+
+    <div class="mensagem-vazia"><img src="assets/imagens/icone-alerta.png" alt="Caixa Vazia">
+      <p>Nenhum pet cadastrado</p>
+    </div>
+
   </main>
 
   <footer>

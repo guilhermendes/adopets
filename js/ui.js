@@ -16,29 +16,27 @@ const ui = {
 
   async renderizaPet() {
     const listaPet = document.querySelector("#lista-pet");
+    const mensagemVazia = document.querySelector(".mensagem-vazia");
+    const loading = document.querySelector("#loading");
 
     try {
       listaPet.innerHTML = "";
-      const listaPetContainer = document.querySelector("#lista-pet-container");
-      const containerLoading = document.createElement("div");
-      const spinner = document.createElement("div");
-
-      containerLoading.id = "loading";
-      spinner.classList.add("spinner");
-      containerLoading.appendChild(spinner);
-      listaPetContainer.appendChild(containerLoading);
+      loading.classList.remove("hidden");
 
       const pets = await api.buscaPet();
-      document.querySelector("#loading")?.remove();
+      loading.classList.add("hidden");
 
       if (!pets || pets.length === 0) {
-        ui.carregarConteudoVazio();
+        loading.classList.add("hidden");
+        mensagemVazia.classList.remove("hidden");
       } else {
+        mensagemVazia.classList.add("hidden");
         pets.forEach(ui.adicionarPetsNaLista);
       }
     } catch {
-      document.querySelector("#loading")?.remove();
-      alert("Não é possível exibir o pet");
+      loading.classList.add("hidden");
+      console.error(error);
+      throw error;
     }
   },
 
@@ -98,23 +96,7 @@ const ui = {
     li.appendChild(icones);
     listaPet.appendChild(li);
   },
-  carregarConteudoVazio() {
-    const containerPet = document.querySelector("section");
 
-    const container = document.createElement("div");
-    container.classList.add("pet-conteudo");
-
-    const iconeCaixa = document.createElement("img");
-    iconeCaixa.src = "assets/imagens/icone-alerta.png";
-    iconeCaixa.alt = "Caixa Vazia";
-
-    const conteudo = document.createElement("p");
-    conteudo.textContent = "Nenhum pet cadastrado";
-
-    container.appendChild(iconeCaixa);
-    container.appendChild(conteudo);
-    containerPet.appendChild(container);
-  },
   limparFormulario() {
     document.querySelector("#pet-form").reset();
   },

@@ -23,12 +23,12 @@ async function manipulaSubimisaoFormulario(event) {
       await api.editarPet({ id, especie, nome, raca });
     } else {
       await api.salvaPet({ especie, nome, raca });
-      ui.limparFormulario();
     }
     ui.limparFormulario();
     ui.renderizaPet();
-  } catch {
-    alert("erro ao salvar");
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
 }
 function manipularCancelamento() {
