@@ -34,7 +34,7 @@ const ui = {
         mensagemVazia.classList.add("hidden");
         pets.forEach(ui.adicionarPetsNaLista);
       }
-    } catch {
+    } catch (error) {
       loading.classList.add("hidden");
       console.error(error);
       throw error;
