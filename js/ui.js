@@ -21,6 +21,7 @@ const ui = {
 
     try {
       listaPet.innerHTML = "";
+      mensagemVazia.classList.add("hidden");
       loading.classList.remove("hidden");
 
       const pets = await api.buscaPet();
