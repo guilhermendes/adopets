@@ -16,17 +16,29 @@ const ui = {
 
   async renderizaPet() {
     const listaPet = document.querySelector("#lista-pet");
-    listaPet.innerHTML = "";
+
     try {
+      listaPet.innerHTML = "";
+      const listaPetContainer = document.querySelector("#lista-pet-container");
+      const containerLoading = document.createElement("div");
+      const spinner = document.createElement("div");
+
+      containerLoading.id = "loading";
+      spinner.classList.add("spinner");
+      containerLoading.appendChild(spinner);
+      listaPetContainer.appendChild(containerLoading);
+
       const pets = await api.buscaPet();
+      document.querySelector("#loading")?.remove();
+
       if (!pets || pets.length === 0) {
         ui.carregarConteudoVazio();
       } else {
         pets.forEach(ui.adicionarPetsNaLista);
       }
     } catch {
+      document.querySelector("#loading")?.remove();
       alert("Não é possível exibir o pet");
-      throw Error;
     }
   },
 
@@ -99,9 +111,9 @@ const ui = {
     const conteudo = document.createElement("p");
     conteudo.textContent = "Nenhum pet cadastrado";
 
-    container.appendChild(iconeCaixa); // 👈 imagem primeiro
+    container.appendChild(iconeCaixa);
     container.appendChild(conteudo);
-    containerPet.appendChild(container); // 👈 corrigido
+    containerPet.appendChild(container);
   },
   limparFormulario() {
     document.querySelector("#pet-form").reset();

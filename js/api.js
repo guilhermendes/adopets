@@ -4,7 +4,8 @@ const api = {
   async buscaPet() {
     try {
       const response = await fetch(`${URL_BASE}/pets/`);
-      return await response.json();
+      const pets = await response.json();
+      return pets.reverse();
     } catch {
       alert("erro ao buscar api");
       throw error;
