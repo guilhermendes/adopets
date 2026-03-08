@@ -9,9 +9,20 @@ const ui = {
   async preencherFormulario(petId) {
     const pet = await api.buscaPetId(petId);
     document.querySelector("#pet-id").value = pet.id;
-    document.querySelector("#pet-especie").value = pet.especie;
     document.querySelector("#pet-nome").value = pet.nome;
     document.querySelector("#pet-raca").value = pet.raca;
+
+    const selectEspecie = document.querySelector("#pet-especie");
+    selectEspecie.value = pet.especie;
+
+    if (!selectEspecie.value) {
+      const options = selectEspecie.querySelectorAll("option");
+      options.forEach((option) => {
+        if (option.value.toLowerCase() === pet.especie.toLowerCase()) {
+          option.selected = true;
+        }
+      });
+    }
   },
 
   async renderizaPet() {

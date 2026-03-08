@@ -1,4 +1,4 @@
-const URL_BASE = "https://adopets-itwi.onrender.com";
+const URL_BASE = "https://adopets-xi.vercel.app/";
 //const URL_BASE = "http://localhost:3000";
 
 const api = {
